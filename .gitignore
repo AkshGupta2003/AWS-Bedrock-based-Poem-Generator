@@ -1,0 +1,17 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Python folder
+python/
+
+boto3_layer.zip
+Rokan_accessKeys.csv
+Rokan_credentials.csv
