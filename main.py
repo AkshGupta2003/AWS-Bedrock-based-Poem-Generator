@@ -85,8 +85,8 @@ def lambda_handler(event, context):
     generate_poem = poem_generator_using_bedrock(poem_title=poem_title)
 
     if generate_poem:
-        current_time=datetime.now().strftime('%H%M%S')
-        s3_key=f"poem-output/{current_time}.txt"
+        file_name = poem_title.lower().replace(" ", "_") + "_poem"
+        s3_key=f"poem-output/{file_name}.txt"
         s3_bucket='aws-poem-generator'
         save_poem_details_s3(s3_key,s3_bucket,generate_poem)
 
@@ -95,6 +95,6 @@ def lambda_handler(event, context):
 
     return {
         'statusCode': 200,
-        'body': json.dumps('Hello from Lambda!')
+        'body': json.dumps('Poem Generated and Stored in the S3 bucket')
     }
 
